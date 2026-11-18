@@ -1,0 +1,3 @@
+@echo off
+echo Instalando XR18-Studio no PC...
+pause

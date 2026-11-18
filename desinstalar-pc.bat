@@ -1,0 +1,3 @@
+@echo off
+echo Removendo cache e atalhos do XR18-Studio...
+pause

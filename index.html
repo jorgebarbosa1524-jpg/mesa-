@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XR18-Studio Pro v8</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎛️ XR18-Studio Pro <span style="font-size:0.68rem; background:#ef4444; padding:2px 6px; border-radius:4px;">AO VIVO</span></h1>
+        <div style="display:flex; gap:6px;">
+            <button id="btn-play" style="background:#22c55e; color:#052e16;">▶ Tocar Demo</button>
+            <button id="btn-stop" style="background:#ef4444;">■ Parar</button>
+        </div>
+    </header>
+
+    <!-- CAIXA DE DIÁLOGO E ESCOLHA DE IA SIMPLIFICADA -->
+    <section class="ai-panel" aria-label="Painel de Controle da IA">
+        <div class="ai-controls-row">
+            <button id="btn-ai">🤖 Auto-Mix IA: OFF</button>
+            
+            <!-- Seletor de IA + Campo de Chave API simplificado -->
+            <div class="ai-key-box">
+                <select id="ai-provider" style="border:none; background:#1e293b; padding:4px 8px;">
+                    <option value="auto">IA: Auto-Detectar Chave</option>
+                    <option value="gemini">Google Gemini</option>
+                    <option value="claude">Anthropic Claude</option>
+                    <option value="local">IA Local (Sem Chave)</option>
+                </select>
+                <input type="password" id="ai-api-key" class="ai-key-input" placeholder="Cole sua chave API (Gemini AIza... ou Claude)">
+                <button id="btn-save-key" style="background:#10b981; padding:4px 10px; font-size:0.75rem;">Salvar Chave</button>
+            </div>
+
+            <select id="ai-preset">
+                <option value="balanced">Modo: Mix Equilibrada</option>
+                <option value="vocal">Modo: Destaque Voz</option>
+                <option value="punch">Modo: Graves & Punch</option>
+            </select>
+        </div>
+
+        <div class="ai-chat-row">
+            <input type="text" id="ai-chat-input" class="ai-chat-input" placeholder="Peça algo à IA: Ex: Analise o canal do baixo e corrija, destacar voz principal, mutar guitarra...">
+            <button id="ai-chat-send" style="background:#0284c7; padding:8px 16px;">Perguntar / Executar</button>
+        </div>
+        <div id="ai-log" class="log">🤖 IA Pronta: Cole sua chave do Gemini acima ou use direto no modo local!</div>
+    </section>
+
+    <main class="console" id="console-main">
+        <!-- Canais gerados dinamicamente via JS -->
+    </main>
+
+    <script src="core.js"></script>
+    <script src="audio.js"></script>
+    <script src="ai.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
